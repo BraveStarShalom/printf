@@ -16,7 +16,7 @@ int print_char(va_list types, char buffer[],
 {
 	char p = va_arg(types, int);
 
-	return (character_output(c, buffer, flags, width, precision, size));
+	return (character_output(p, buffer, flags, width, precision, size));
 }
 
 /******************** PRINT STRING ********************/
@@ -122,7 +122,7 @@ int print_int(va_list types, char buffer[],
 	if (q == 0)
 		buffer[p--] = '0';
 
-	buffer[BF_SIZE - 1] = '\0';
+	buffer[BUFF_SIZE - 1] = '\0';
 	nq = (unsigned long int)q;
 
 	if (q < 0)
