@@ -14,7 +14,7 @@ int _printf(const char *form, ...)
 	va_list list;
 	char buffer[BUFF_SIZE];
 
-	if (format == NULL)
+	if (form == NULL)
 
 		return (-1);
 	va_start(list, form);
@@ -32,8 +32,8 @@ int _printf(const char *form, ...)
 		{
 			print_buffer(buffer, &buff_ind);
 			flags = get_flags(form, &k);
-			width = get_width(form, &k, list);
-			precision = get_precision(form, &k, list);
+			width = width_measure(form, &k, list);
+			precision = precision_measure(form, &k, list);
 			size = get_size(form, &k);
 			++k;
 			printed = handle_print(form, &k, list, buffer,
